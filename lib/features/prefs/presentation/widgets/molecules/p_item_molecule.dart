@@ -1,19 +1,18 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
-import '../../../../../core/routes/app_routes.dart' as AppRoutes;
 import '../../../domain/domain.dart';
 
 class PrefsItemCard extends StatelessWidget {
   final PreferenceEntity item;
   final VoidCallback onDelete;
+  final VoidCallback onTap;
 
   const PrefsItemCard({
     super.key,
     required this.item,
     required this.onDelete,
+    required this.onTap,
   });
 
   @override
@@ -49,12 +48,7 @@ class PrefsItemCard extends StatelessWidget {
           icon: const Icon(Icons.delete, color: Colors.redAccent),
           onPressed: onDelete,
         ),
-        onTap: () {
-          context.push(
-            AppRoutes.prefsDetail,
-            extra: item,
-          );
-        },
+        onTap: onTap,
       ),
     );
   }

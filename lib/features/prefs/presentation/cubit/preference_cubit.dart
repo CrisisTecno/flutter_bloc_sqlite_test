@@ -17,22 +17,16 @@ class PreferenceCubit extends Cubit<PreferenceState> {
     required this.deleteUseCase,
   }) : super(PreferenceInitial());
 
-  // ======================
-  // LOAD ALL
-  // ======================
   Future<void> loadPreferences() async {
     emit(PreferenceLoading());
     try {
       final items = await getAllUseCase();
-      emit(PreferenceLoaded(items));
+      emit(PreferenceLoaded(List.from(items)));
     } catch (e) {
       emit(const PreferenceError('Error al cargar preferencias'));
     }
   }
 
-  // ======================
-  // ADD
-  // ======================
   Future<void> addPreference(PreferenceEntity entity) async {
     try {
       await addUseCase(entity);
@@ -42,9 +36,6 @@ class PreferenceCubit extends Cubit<PreferenceState> {
     }
   }
 
-  // ======================
-  // GET BY ID
-  // ======================
   Future<void> getPreference(int id) async {
     emit(PreferenceLoading());
     try {
@@ -59,29 +50,19 @@ class PreferenceCubit extends Cubit<PreferenceState> {
     }
   }
 
-  // ======================
-  // UPDATE
-  // ======================
   Future<void> updatePreference(PreferenceEntity entity) async {
     emit(PreferenceLoading());
-    try {
-      await updateUseCase(entity);
-      // Volvemos a emitir el detalle actualizado
-      emit(PreferenceDetailLoaded(entity));
-    } catch (e) {
-      emit(const PreferenceError('Error al actualizar preferencia'));
-    }
+    await updateUseCase(entity);
+
+    final items = await getAllUseCase();
+    emit(PreferenceLoaded(List.from(items)));
   }
 
-  // ======================
-  // DELETE
-  // ======================
   Future<void> deletePreference(int id) async {
-    try {
-      await deleteUseCase(id);
-      await loadPreferences();
-    } catch (e) {
-      emit(const PreferenceError('Error al eliminar preferencia'));
-    }
+    emit(PreferenceLoading());
+    await deleteUseCase(id);
+
+    final items = await getAllUseCase();
+    emit(PreferenceLoaded(List.from(items)));
   }
 }
