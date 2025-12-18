@@ -1,11 +1,4 @@
-Perfecto 👌
-Aquí tienes un **README.md completo, profesional y alineado al nivel técnico** del proyecto que hemos construido (Flutter + BLoC + Clean Architecture + SQLite + API + PageView).
 
-Puedes copiarlo **tal cual** a la raíz del proyecto.
-
----
-
-```md
 # Rick & Morty Multiverse App 🧪🛸
 
 Aplicación móvil desarrollada en **Flutter** que consume la API pública de **Rick & Morty**, permite explorar personajes, buscarlos en tiempo real y guardarlos como **favoritos persistentes** usando **SQLite**.  
