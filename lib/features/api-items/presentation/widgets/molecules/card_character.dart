@@ -49,6 +49,10 @@ class CharacterCard extends StatelessWidget {
 
                 ActionButtons(
                   onFavorite: () {
+                    context.push(
+                      '/prefs/new',
+                      extra: character,
+                    );
                   },
                   onDetails: () {
                     context.push(

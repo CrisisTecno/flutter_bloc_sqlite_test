@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     _requested = true;
 
     context.read<ApiItemsCubit>().fetchCharacters(
-          List.generate(20, (i) => i + 1), // 1..20
+          List.generate(20, (i) => i + 1),
         );
   }
 
@@ -32,7 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
     return BlocListener<ApiItemsCubit, ApiItemsState>(
       listener: (context, state) {
         if (state is ApiItemsLoaded) {
-          context.go('/api-list');
+          // context.go('/api-list');
+          context.go('/prefs');
         }
 
         if (state is ApiItemsError) {

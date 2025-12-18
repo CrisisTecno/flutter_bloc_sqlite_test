@@ -39,7 +39,7 @@ class _ApiListViewState extends State<ApiListView> {
       backgroundColor: const Color(0xFF0B0F1A),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0B0F1A),
         iconTheme: const IconThemeData(color: Colors.white),
         title: Text(
           'API-ListView',
@@ -52,8 +52,8 @@ class _ApiListViewState extends State<ApiListView> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
             colors: [
               Color(0xFF0B0F1A),
               Color(0xFF1B5E20),
