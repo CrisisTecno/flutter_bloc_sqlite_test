@@ -37,18 +37,6 @@ class _ApiListViewState extends State<ApiListView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0B0F1A),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color(0xFF0B0F1A),
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: Text(
-          'API-ListView',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-        ),
-      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(

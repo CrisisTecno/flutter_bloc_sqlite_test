@@ -37,21 +37,7 @@ class _PrefsListPageState extends State<PrefsListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0B0F1A),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color(0xFF0B0F1A),
-        title: const Text(
-          'Mis Favoritos',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.greenAccent,
-        onPressed: () {
-          Navigator.pushNamed(context, AppRoutes.prefsNew);
-        },
-        child: const Icon(Icons.add, color: Colors.black),
-      ),
+     
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -113,7 +99,7 @@ class _PrefsListPageState extends State<PrefsListPage> {
                     );
                   }
 
-                  return const SizedBox();
+                  return const PrefsEmptyView();
                 },
               ),
             ),

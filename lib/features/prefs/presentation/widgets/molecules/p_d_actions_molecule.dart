@@ -33,8 +33,8 @@ class PrefsActionButtons extends StatelessWidget {
         const SizedBox(width: 12),
         Expanded(
           child: ElevatedButton.icon(
-            icon: const Icon(Icons.delete),
-            label: const Text('Eliminar'),
+            icon: const Icon(Icons.delete, color: Colors.white,),
+            label: const Text('Eliminar',style: TextStyle(color:Colors.white),),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.redAccent,
               padding: const EdgeInsets.symmetric(vertical: 14),

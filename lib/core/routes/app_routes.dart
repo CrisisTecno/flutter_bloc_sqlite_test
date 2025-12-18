@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_ricky/features/combined/combined_view.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/api-items/domain/domain.dart';
 import '../../features/api-items/presentation/presentation.dart';
 import '../../features/prefs/domain/domain.dart';
 import '../../features/prefs/presentation/presentation.dart';
-import '../../features/prefs/presentation/views/prefs_detail.dart';
-import '../../features/prefs/presentation/views/prefs_new.dart';
 import '../../features/widgets/widgets.dart';
 
 final goRouter = GoRouter(
   initialLocation: '/splash',
   routes: [
     GoRoute(path: '/splash', builder: (context, state) => const SplashScreen()),
+    GoRoute(path: '/combined', builder: (context, state) => const CombinedPage()),
     GoRoute(
       path: '/api-list',
       builder: (context, state) => const ApiListView(),

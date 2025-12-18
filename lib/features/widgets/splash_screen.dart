@@ -33,7 +33,8 @@ class _SplashScreenState extends State<SplashScreen> {
       listener: (context, state) {
         if (state is ApiItemsLoaded) {
           // context.go('/api-list');
-          context.go('/prefs');
+          // context.go('/prefs');
+          context.go('/combined');
         }
 
         if (state is ApiItemsError) {
