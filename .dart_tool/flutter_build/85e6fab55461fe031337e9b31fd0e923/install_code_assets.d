@@ -1,0 +1,1 @@
+ C:\\Users\\CrisisTecno\\CrisisTecno\\proyects\\projects_flutter\\flutter_test_ricky\\.dart_tool\\flutter_build\\85e6fab55461fe031337e9b31fd0e923\\native_assets.json: 

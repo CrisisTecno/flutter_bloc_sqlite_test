@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _goToHome() async {
     await Future.delayed(const Duration(seconds: 5));
     if (mounted) {
-      context.go('/combined');
+      context.go('/api-list');
     }
   }
 
