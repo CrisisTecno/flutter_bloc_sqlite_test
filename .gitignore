@@ -1,3 +1,57 @@
 
 # FVM Version Cache
 .fvm/
+# --- Flutter / Dart ---
+.dart_tool/
+.packages.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.fvm/
+.buildlog/
+.melos_tool/
+coverage/
+**/generated_plugin_registrant.*
+*.lock
+
+# --- Build outputs (todas las plataformas) ---
+build/
+**/build/
+web/build/
+linux/build/
+macos/build/
+windows/build/
+
+# --- Android ---
+android/.gradle/
+android/local.properties
+*.keystore
+*.jks
+*.apk
+*.aab
+*.aar
+# Si usas NDK/CMake, estos suelen ser temporales:
+android/app/.cxx/
+**/.cxx/
+
+# --- iOS/macOS ---
+ios/Pods/
+ios/.generated/
+**/DerivedData/
+*.xcworkspace
+*.xcuserstate
+*.xcuserdata
+
+# --- Firebase / secretos (si aplica) ---
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+*.env
+*.pem
+*.cer
+*.crt
+*.key
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+*.iml
+.DS_Store
