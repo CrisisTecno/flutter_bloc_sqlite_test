@@ -5,19 +5,24 @@ import '../widgets.dart';
 class InfoCardMolecule extends StatelessWidget {
   final CharacterEntity character;
 
-  const InfoCardMolecule({
-    super.key,
-    required this.character,
-  });
+  const InfoCardMolecule({super.key, required this.character});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      // decoration: BoxDecoration(
+      //   color: Colors.grey[50],
+      //   borderRadius: BorderRadius.circular(16),
+      //   border: Border.all(
+      //     color: Colors.grey[200]!,
+      //   ),
+      // ),
       decoration: BoxDecoration(
-        color: Colors.grey[50],
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Colors.grey[200]!,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Colors.green.shade300, Colors.lightGreen.withAlpha(100)],
         ),
       ),
       child: Column(
@@ -26,8 +31,7 @@ class InfoCardMolecule extends StatelessWidget {
             icon: Icons.favorite,
             label: 'Estado',
             value: character.status,
-            iconColor:
-                character.status == 'Alive' ? Colors.green : Colors.red,
+            iconColor: character.status == 'Alive' ? Colors.green : Colors.red,
           ),
           const SectionDividerAtom(),
           InfoRowMolecule(

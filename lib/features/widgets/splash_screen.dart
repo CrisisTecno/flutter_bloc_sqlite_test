@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../api-items/presentation/presentation.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -9,22 +12,36 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  bool _requested = false;
+
   @override
-  void initState() {
-    super.initState();
-    _goToHome();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    if (_requested) return;
+    _requested = true;
+
+    context.read<ApiItemsCubit>().fetchCharacters(
+          List.generate(20, (i) => i + 1), // 1..20
+        );
   }
 
-  Future<void> _goToHome() async {
-    await Future.delayed(const Duration(seconds: 5));
-    if (mounted) {
-      context.go('/api-list');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocListener<ApiItemsCubit, ApiItemsState>(
+      listener: (context, state) {
+        if (state is ApiItemsLoaded) {
+          context.go('/api-list');
+        }
+
+        if (state is ApiItemsError) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(state.message)),
+          );
+        }
+      },
+      child: Scaffold(
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -72,6 +89,6 @@ class _SplashScreenState extends State<SplashScreen> {
           ],
         ),
       ),
-    );
+    ));
   }
 }

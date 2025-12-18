@@ -19,7 +19,7 @@ class InfoTextAtom extends StatelessWidget {
         Text(
           label,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Colors.grey[600],
+                color: Colors.white,
                 fontWeight: FontWeight.w500,
               ),
         ),
@@ -27,7 +27,7 @@ class InfoTextAtom extends StatelessWidget {
         Text(
           value,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.bold,fontSize: 18,color:Colors.white
               ),
         ),
       ],
